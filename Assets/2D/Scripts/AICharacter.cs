@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using System.Collections;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class AICharacter : MonoBehaviour
 
 	[SerializeField] CharacterController2D characterController;
 	[SerializeField] AnimationEventRouter animationEventRouter;
+	[SerializeField] RaycastInteractor2D raycastInteractor;
 
 	public CharacterController2D CharacterController => characterController;
 
@@ -30,7 +32,18 @@ public class AICharacter : MonoBehaviour
 
 	void Update()
 	{
-		
+		if (target != null)
+		{
+			if (target.transform.position.x < transform.position.x) SetDirection(-1);
+			else SetDirection(1);
+
+			Vector2 direction = target.transform.position - transform.position;
+			if (direction.magnitude < 1)
+			{
+				characterController.OnAttack();
+			}
+		}
+		raycastInteractor.Direction = characterController.Facing;
 	}
 
 	public void Idle(float time)
@@ -63,6 +76,14 @@ public class AICharacter : MonoBehaviour
 		target = go;
 	}
 
+	public void OnDeath()
+	{
+		state = State.Death;	
+	}
+	public void OnDamage()
+	{
+		print("damaged!");
+	}
 	IEnumerator WaitIdle(float time)
 	{
 		state = State.Idle;
