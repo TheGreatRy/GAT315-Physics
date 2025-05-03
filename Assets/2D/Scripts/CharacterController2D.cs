@@ -42,7 +42,7 @@ public class CharacterController2D : MonoBehaviour
 	// Ground collision tracking
 	RaycastHit2D[] raycastHits = new RaycastHit2D[5]; // Buffer for ground collision results
 	int groundHits = 0;                              // Number of ground collisions detected
-	bool isGrounded = false;                         // Whether character is currently on ground
+	bool isGrounded = true;                         // Whether character is currently on ground
 	float coyoteTimer = 0f;                          // Timer for coyote time jump window
 	float doubleJumpTimer = 0f;                      // Timer for double jump window
 
