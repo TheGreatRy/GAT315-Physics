@@ -12,7 +12,7 @@ public class ParallaxEffect : MonoBehaviour
         //Getting the starting X position of sprite.
         startingPosition = transform.position.x;
         //Getting the length of the sprites.
-        spriteLength = GetComponent<SpriteRenderer>().bounds.size.x;
+        spriteLength = GetComponentInChildren<SpriteRenderer>().bounds.size.x;
     }
 
     // Update is called once per frame
