@@ -4518,7 +4518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f682eec63b7eb742a68c0a6ce3866cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxAmount: 0
+  parallaxAmount: 0.2
   mainCamera: {fileID: 4403888599809218679}
 --- !u!1001 &1894557259
 PrefabInstance:
@@ -6581,7 +6581,7 @@ MonoBehaviour:
   WorldUpOverride: {fileID: 0}
   ChannelMask: -1
   UpdateMethod: 2
-  BlendUpdateMethod: 1
+  BlendUpdateMethod: 0
   LensModeOverride:
     Enabled: 0
     DefaultMode: 2

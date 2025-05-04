@@ -16,7 +16,7 @@ public class ParallaxEffect : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector3 Position = mainCamera.transform.position;
         float Temp = Position.x * (1 - parallaxAmount);
@@ -25,5 +25,16 @@ public class ParallaxEffect : MonoBehaviour
         Vector3 NewPosition = new Vector3(startingPosition + Distance, transform.position.y, transform.position.z);
 
         transform.position = NewPosition;
-    }
+   
+
+        if (Temp > startingPosition + (spriteLength / 2))
+        {
+            startingPosition += spriteLength;
+        }
+        else if (Temp < startingPosition - (spriteLength / 2))
+        {
+            startingPosition -= spriteLength;
+        }
+    
+    }   
 }
