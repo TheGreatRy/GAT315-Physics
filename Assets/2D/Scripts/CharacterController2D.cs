@@ -27,6 +27,7 @@ public class CharacterController2D : MonoBehaviour
 	[Header("Components")]
 	[SerializeField] Animator animator;             // Reference to character's animator
 	[SerializeField] SpriteRenderer spriteRenderer; // Reference to character's sprite renderer
+	[SerializeField] AudioSource sfx;
 
 	public const int FACE_LEFT = -1;
 	public const int FACE_RIGHT = 1;
@@ -151,6 +152,7 @@ public class CharacterController2D : MonoBehaviour
 
 			// Reset jump animation trigger to prevent retriggering
 			animator?.ResetTrigger("Jump");
+			animator?.ResetTrigger("InAir");
 		}
 
 		// Reset coyote timer when grounded
@@ -223,6 +225,7 @@ public class CharacterController2D : MonoBehaviour
 	/// </summary>
 	public void OnAttack()
 	{
+		sfx.Play();
 		animator?.SetTrigger("Attack");
 	}
 
